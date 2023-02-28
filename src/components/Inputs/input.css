@@ -1,9 +1,17 @@
 .inputForms {
     display: flex;
-    width: 16rem;
-    padding: 0.5rem;
+    width: 25rem;
+    padding: 0.8rem;
     margin: 1rem;
     background-color: #d9d9d980;
     border-radius: 10px;
     border: none;    
+}
+
+@media (min-width: 768px){
+
+    .inputForms{
+        padding: 1.2rem;
+        font-size: 1.5rem;
+    }
 }

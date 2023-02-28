@@ -1,10 +1,10 @@
 import React from 'react'
 import { HashRouter, Route, Routes } from 'react-router-dom'
 // import { Menu } from './Routes'
-import { Login } from './layouts/Login/Login'
-import { SignUp } from './layouts/SignUp/SignUp'
+import { Login } from './layouts/Login-SignUp/Login'
+import { SignUp } from './layouts/Login-SignUp/SignUp'
 import { WallNotes } from './layouts/WallNotes/WallNotes'
-// import './assets/styles/App.css'
+import './assets/styles/App.css'
 
 function App() {
   return (

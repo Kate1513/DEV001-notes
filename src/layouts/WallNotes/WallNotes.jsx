@@ -1,6 +1,5 @@
 import React from 'react'
 import { NoteList, NoteItem } from '../../components/Notes/Notes'
-// import Notes from '../../components/Notes/Notes'
 
 const notes = [{ text: 'Nota 1' }, { text: 'Nota 2' }, { text: 'Nota 3' }]
 
