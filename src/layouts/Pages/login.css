@@ -17,7 +17,7 @@
     max-width: 28rem;
     align-items: center;
     text-align: center;
-    background-color: #c4d5ff38;
+    background-color: #F8F8F8;
     border-radius: 10px;
 }
 
@@ -34,7 +34,7 @@ h2{
 
 h3{
     margin: 1rem;
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     font-weight: lighter;
     margin: 1rem 0 3rem 0;
 }
@@ -51,7 +51,7 @@ h3{
 
 @media (min-width: 768px){
 
-    main{
+    form{
         display: flex;
         margin: 25px;
         /* transform: translate(0%, 50%); */

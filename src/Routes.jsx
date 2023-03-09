@@ -1,36 +1,29 @@
-/* eslint-disable react/jsx-key */
-// import React from 'react'
-// import { NavLink } from 'react-router-dom'
+import React from 'react'
+import { Navigate } from 'react-router-dom'
+import { useAuth } from './lib/auth'
+import { PropTypes } from 'prop-types'
 
-// function Menu() {
-//   return (
-//     <nav>
-//       <ul>
-//         {routes.map((route) => (
-//           <li key={route.text}>
-//             <NavLink
-//               style={({ isActive }) => ({
-//                 color: isActive ? 'green' : 'blue',
-//               })}
-//               to={route.to}
-//             >
-//               {route.text}
-//             </NavLink>
-//           </li>
-//         ))}
-//       </ul>
-//     </nav>
-//   )
-// }
+const ProtectedRoute = (props) => {
+  const auth = useAuth()
+  if (!auth.loggedUser) {
+    return <Navigate to='/' />
+  }
+  return props.children
+}
 
-// const routes = []
-// routes.push({
-//   to: '/',
-//   text: 'Login',
-// })
-// routes.push({
-//   to: '/signup',
-//   text: 'SignUp',
-// })
+const PublicOnly = (props) => {
+  const auth = useAuth()
+  if (auth.loggedUser) {
+    return <Navigate to='/wall' />
+  }
+  return props.children
+}
 
-// export { Menu }
+ProtectedRoute.propTypes = {
+  children: PropTypes.object,
+}
+PublicOnly.propTypes = {
+  children: PropTypes.object,
+}
+
+export { ProtectedRoute, PublicOnly }

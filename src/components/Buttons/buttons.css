@@ -5,6 +5,7 @@
     font-size: small;
     border-radius: 10px;
     border: none;
+    cursor: pointer;
 }
 
 .buttonStyle:hover {
