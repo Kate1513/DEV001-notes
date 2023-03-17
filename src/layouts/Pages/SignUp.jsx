@@ -4,6 +4,7 @@ import './login.css'
 import { Button } from '../../components/Buttons/Buttons'
 import Logo from '../../assets/images/logo-notes.png'
 import { useAuth } from '../../lib/auth'
+import EyeIcon from '../../assets/images/eye-regular.svg'
 import { Alerts } from '../../components/Modals/Modal'
 
 function SignUp() {
@@ -17,6 +18,11 @@ function SignUp() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [nickname, setNickname] = useState('')
+
+  const [showPassword, setShowPassword] = useState(false)
+  const passwordVisibility = () => setShowPassword(!showPassword)
+  const iconSrc = showPassword ? EyeIcon : EyeIcon
+  const iconAlt = showPassword ? 'Hide password' : 'Show password'
 
   return (
     <>
@@ -34,15 +40,18 @@ function SignUp() {
             autoComplete='on'
             required
           />
-          <Input
-            type='password'
-            name='password'
-            placeholder='Ingresa tu contraseña'
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-          <Input placeholder='Confirma tu contraseña' required />
+          <div className='input-container'>
+            <label htmlFor='password'></label>
+            <Input
+              type={showPassword ? 'text' : 'password'}
+              name='password'
+              placeholder='Ingresa tu contraseña'
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+            <img src={iconSrc} alt={iconAlt} className='eye-icon' onClick={passwordVisibility} />
+          </div>
           <Button onClick={createUser}>Registrarse</Button>
         </section>
       </main>

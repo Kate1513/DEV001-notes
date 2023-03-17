@@ -1,9 +1,9 @@
 import React from 'react'
 import { HashRouter, Route, Routes } from 'react-router-dom'
-// import { ProtectedRoute } from './Routes'
 import { Login } from './layouts/Pages/Login'
 import { SignUp } from './layouts/Pages/SignUp'
 import { WallNotes } from './layouts/WallNotes/WallNotes'
+import { PageNotFound } from './layouts/Pages/notFound'
 import './assets/styles/App.css'
 import { AuthProvider } from './lib/auth'
 import { ProtectedRoute, PublicOnly } from './Routes'
@@ -31,7 +31,7 @@ function App() {
                 </ProtectedRoute>
               }
             />
-            <Route path='/*' element={<p>Page Not Found</p>} />
+            <Route path='/*' element={<PageNotFound />} />
           </Routes>
         </AuthProvider>
       </HashRouter>
