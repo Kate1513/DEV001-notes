@@ -1,10 +1,13 @@
 import React from 'react'
-import './buttons.css'
 import { PropTypes } from 'prop-types'
 
 function Button(props) {
   return (
-    <button className='buttonStyle' onClick={props.onClick} src={props.Icon}>
+    <button
+      className='flex m-4 p-4 text-center text-2xl rounded-lg bg-gray-300 shadow-xl hover:shadow-lg'
+      onClick={props.onClick}
+      src={props.Icon}
+    >
       {props.children}
     </button>
   )

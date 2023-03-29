@@ -4,9 +4,9 @@ import { Login } from './layouts/Pages/Login'
 import { SignUp } from './layouts/Pages/SignUp'
 import { WallNotes } from './layouts/WallNotes/WallNotes'
 import { PageNotFound } from './layouts/Pages/notFound'
-import './assets/styles/App.css'
 import { AuthProvider } from './lib/auth'
 import { ProtectedRoute, PublicOnly } from './Routes'
+import { ModalProvider } from './components/Modal'
 
 function App() {
   return (
@@ -18,11 +18,20 @@ function App() {
               path='/'
               element={
                 <PublicOnly>
-                  <Login />
+                  <ModalProvider>
+                    <Login />
+                  </ModalProvider>
                 </PublicOnly>
               }
             />
-            <Route path='/signup' element={<SignUp />} />
+            <Route
+              path='/signup'
+              element={
+                <ModalProvider>
+                  <SignUp />
+                </ModalProvider>
+              }
+            />
             <Route
               path='/wall'
               element={

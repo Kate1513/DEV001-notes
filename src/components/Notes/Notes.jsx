@@ -17,7 +17,7 @@ function NoteItem(props) {
     alert('editar nota')
   }
   const deleteNote = () => {
-    alert('Borraste la nota')
+    alert('Borraste la nota' + props.text)
   }
   return (
     <section className='print-note'>

@@ -19,18 +19,18 @@ function AuthProvider({ children }) {
 
   // Create user with email and password
   const signUpUser = (email, password, nickname) => {
-    createUserWithEmailAndPassword(auth, email, password)
+    return createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         setLoggedUser(userCredential)
         registerDocUser(userCredential.user.uid, nickname)
         navigate('/wall')
       })
       .catch(() => {
-        window.modalError.showModal()
+        throw new Error()
       })
   }
 
-  // Creacion del documento de usuario en Firestore.
+  // Create User Document in Firestore.
   const registerDocUser = async (uid, nickname) => {
     await setDoc(doc(db, 'Users', uid), {
       name: nickname,
@@ -39,13 +39,13 @@ function AuthProvider({ children }) {
 
   // Login with email and password
   const loginUser = (email, password) => {
-    signInWithEmailAndPassword(auth, email, password)
+    return signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         setLoggedUser(userCredential)
         navigate('/wall')
       })
       .catch(() => {
-        window.modalError.showModal()
+        throw new Error()
       })
   }
 
@@ -56,7 +56,7 @@ function AuthProvider({ children }) {
     navigate('/wall')
   }
 
-  // Cierre de sesion de usuario
+  // LogOut User
   const logoutUser = () => {
     signOut(auth)
     setLoggedUser(null)
